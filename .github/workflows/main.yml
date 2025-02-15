@@ -1,0 +1,17 @@
+on: push
+
+jobs:
+  backfill-commits:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: bcanseco/github-contribution-graph-action@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_EMAIL: putrun379@instmail.uk # replace me
+        MAX_DAYS: 120
+        MIN_COMMITS_PER_DAY: 3
+        MAX_COMMITS_PER_DAY: 3
+        START_DATE: 2024-11-01  # Ganti dengan tanggal awal sesuai tahun yang diinginkan
+        END_DATE: 2025-02-15    # Ganti dengan tanggal akhir sesuai tahun yang diinginkan
